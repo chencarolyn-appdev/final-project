@@ -1,0 +1,62 @@
+<h1>
+  <%= @show.title %> 
+</h1>
+
+<div>
+  <div>
+    <a href="/shows">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_show_form/<%= @show.id %>">
+      Edit show
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_show/<%= @show.id %>">
+      Delete show
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @show.title %>
+  </dd>
+<p></p>
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @show.description %>
+  </dd>
+<p></p>
+  <dt>
+    Time
+  </dt>
+  <dd>
+    <%= @show.time %>
+  </dd>
+<p></p>
+  <dt>
+    Channel
+  </dt>
+  <dd>
+    <%= Channel.where({ :id => @show.channel_id }).at(0).name %>
+  </dd>
+<p></p>
+  <dt>
+    Viewing location
+  </dt>
+  <dd>
+    <%= ViewingLocation.where({ :id => @show.viewing_locations_id }).at(0).location_name %>
+  </dd>
+
+</dl>
+

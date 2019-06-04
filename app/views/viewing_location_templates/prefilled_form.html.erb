@@ -1,0 +1,35 @@
+<h1>
+  Edit viewing location #<%= @viewing_location.id %>
+</h1>
+
+<hr>
+
+<%= render("viewing_location_templates/validation_failures.html.erb") %>
+
+<form action="/update_viewing_location_record/<%= @viewing_location.id %>" method="post">
+  <div>
+    <label for="location_name">
+      Location name
+    </label>
+
+    <input type="text" id="location_name" name="location_name" value="<%= @viewing_location.location_name %>">
+  </div>
+
+  <div>
+    <label for="location_address">
+      Location address
+    </label>
+
+    <input type="text" id="location_address" name="location_address" value="<%= @viewing_location.location_address %>">
+  </div>
+
+  <button>
+    Update viewing location
+  </button>
+</form>
+
+<hr>
+
+<a href="/viewing_locations">
+  Go back
+</a>

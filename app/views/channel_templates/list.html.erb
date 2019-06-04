@@ -1,0 +1,49 @@
+<h1>
+  Channel list
+</h1>
+
+<a href="/new_channel_form">
+  Add a new channel
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    
+    <th>
+      Name
+    </th>
+
+    <th>
+      Channel number
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @channels.each do |channel| %>
+  <tr>
+
+    <td>
+      <%= channel.name %>
+    </td>
+
+    <td>
+      <%= channel.channel_number %>
+    </td>
+
+
+    <td>
+      <a href="/channels/<%= channel.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<a href = "/shows">
+  Go Home
+</a>

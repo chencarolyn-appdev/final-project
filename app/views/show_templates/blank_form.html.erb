@@ -1,0 +1,59 @@
+<h1>
+  Add a new show
+</h1>
+
+<hr>
+
+<%= render("show_templates/validation_failures.html.erb") %>
+
+<form action="/insert_show_record" method="post">
+  <div>
+    <label for="title">
+      Title
+    </label>
+
+    <input type="text" id="title" name="title" value="<%= @show.title %>">
+  </div>
+
+  <div>
+    <label for="description">
+      Description
+    </label>
+
+    <textarea id="description" name="description"><%= @show.description %></textarea>
+  </div>
+
+  <div>
+    <label for="time">
+      Time
+    </label>
+
+    <input type="text" id="time" name="time" value="<%= @show.time %>">
+  </div>
+
+  <div>
+    <label for="channel_id">
+      Channel
+    </label>
+
+    <input type="text" id="channel_id" name="channel_id" value="<%= @show.channel_id %>">
+  </div>
+
+  <div>
+    <label for="viewing_locations_id">
+      Viewing locations
+    </label>
+
+    <input type="text" id="viewing_locations_id" name="viewing_locations_id" value="<%= @show.viewing_locations_id %>">
+  </div>
+
+  <button>
+    Create show
+  </button>
+</form>
+
+<hr>
+
+<a href="/shows">
+  Go back
+</a>

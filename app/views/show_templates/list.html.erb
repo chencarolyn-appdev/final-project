@@ -1,0 +1,79 @@
+<h1>
+ My Tracked TV Shows
+</h1>
+
+<a href="/new_show_form">
+  All Shows
+</a>
+<br> <a href="/channels">
+  Channel Info
+</a>
+<br> <a href="/new_show_form">
+  Viewing Location Info
+</a>
+<br> <a href="/new_show_form">
+  Add a new show
+</a>
+
+<hr>
+
+<table>
+  <tr>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Description
+    </th>
+
+    <th>
+      Time
+    </th>
+
+    <th>
+      Channel
+    </th>
+
+    <th>
+      Viewing location
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @shows.each do |show| %>
+  <tr>
+
+    <td>
+      <%= show.title %>
+    </td>
+
+    <td>
+      <%= show.description %>
+    </td>
+
+    <td>
+      <%= show.time %>
+    </td>
+
+    <td>
+      <%= Channel.where({ :id => show.channel_id }).at(0).name  %>
+    </td>
+
+    <td>
+      <%= ViewingLocation.where({ :id =>show.viewing_locations_id }).at(0).location_name %>
+    </td>
+
+
+    <td>
+      <a href="/shows/<%= show.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+

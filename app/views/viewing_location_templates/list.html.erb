@@ -1,0 +1,66 @@
+<h1>
+  Viewing location list
+</h1>
+
+<a href="/new_viewing_location_form">
+  Add a new viewing location
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Location name
+    </th>
+
+    <th>
+      Location address
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @viewing_locations.each do |viewing_location| %>
+  <tr>
+    <td>
+      <%= viewing_location.id %>
+    </td>
+
+    <td>
+      <%= viewing_location.location_name %>
+    </td>
+
+    <td>
+      <%= viewing_location.location_address %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(viewing_location.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(viewing_location.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/viewing_locations/<%= viewing_location.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

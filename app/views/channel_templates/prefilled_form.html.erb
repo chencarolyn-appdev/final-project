@@ -1,0 +1,35 @@
+<h1>
+  Edit channel #<%= @channel.id %>
+</h1>
+
+<hr>
+
+<%= render("channel_templates/validation_failures.html.erb") %>
+
+<form action="/update_channel_record/<%= @channel.id %>" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @channel.name %>">
+  </div>
+
+  <div>
+    <label for="channel_number">
+      Channel number
+    </label>
+
+    <input type="text" id="channel_number" name="channel_number" value="<%= @channel.channel_number %>">
+  </div>
+
+  <button>
+    Update channel
+  </button>
+</form>
+
+<hr>
+
+<a href="/channels">
+  Go back
+</a>

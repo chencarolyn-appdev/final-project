@@ -1,0 +1,54 @@
+<h1>
+  Viewing location #<%= @viewing_location.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/viewing_locations">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_viewing_location_form/<%= @viewing_location.id %>">
+      Edit viewing location
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_viewing_location/<%= @viewing_location.id %>">
+      Delete viewing location
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Location name
+  </dt>
+  <dd>
+    <%= @viewing_location.location_name %>
+  </dd>
+
+  <dt>
+    Location address
+  </dt>
+  <dd>
+    <%= @viewing_location.location_address %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@viewing_location.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@viewing_location.updated_at) %> ago
+  </dd>
+</dl>
+
