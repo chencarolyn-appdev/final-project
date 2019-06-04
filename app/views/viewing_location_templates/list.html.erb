@@ -10,9 +10,6 @@
 
 <table>
   <tr>
-    <th>
-      ID
-    </th>
 
     <th>
       Location name
@@ -22,13 +19,6 @@
       Location address
     </th>
 
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
 
     <th>
     </th>
@@ -36,9 +26,6 @@
 
   <% @viewing_locations.each do |viewing_location| %>
   <tr>
-    <td>
-      <%= viewing_location.id %>
-    </td>
 
     <td>
       <%= viewing_location.location_name %>
@@ -48,13 +35,6 @@
       <%= viewing_location.location_address %>
     </td>
 
-    <td>
-      <%= time_ago_in_words(viewing_location.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(viewing_location.updated_at) %> ago
-    </td>
 
     <td>
       <a href="/viewing_locations/<%= viewing_location.id %>">
@@ -64,3 +44,7 @@
   </tr>
   <% end %>
 </table>
+
+<a href = "/shows">
+<button style="background-color:PaleGreen"> Go Home </button>
+</a>

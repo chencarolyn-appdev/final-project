@@ -36,7 +36,15 @@
       Channel
     </label>
 
-    <input type="text" id="channel_id" name="channel_id" value="<%= @show.channel_id %>">
+<select name="channel_id" id="user_dropdown">
+  
+  <% @channels.each do |channel| %>
+    <option value="<%= channel.id %>">
+      <%= channel.name %>
+    </option>
+  <% end %>
+</select>
+
   </div>
 
   <div>
@@ -44,16 +52,25 @@
       Viewing locations
     </label>
 
-    <input type="text" id="viewing_locations_id" name="viewing_locations_id" value="<%= @show.viewing_locations_id %>">
+<select name="viewing_locations_id" id="user_dropdown">
+  
+  <% @viewing_locations.each do |vl| %>
+    <option value="<%= vl.id %>">
+      <%= vl.location_name %>
+    </option>
+  <% end %>
+</select>
+
   </div>
 
-  <button>
+ <p></p> 
+ <button>
     Create show
   </button>
 </form>
 
 <hr>
 
-<a href="/shows">
-  Go back
+<a href = "/shows">
+<button style="background-color:PaleGreen"> Go Home </button>
 </a>

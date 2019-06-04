@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
      render("show_templates/list.html.erb")
   end
   
-
+  
   def list
     @shows = Show.all
 
@@ -20,7 +20,8 @@ class ShowsController < ApplicationController
 
   def blank_form
     @show = Show.new
-
+    @channels = Channel.all
+    @viewing_locations = ViewingLocation.all
     render("show_templates/blank_form.html.erb")
   end
 
