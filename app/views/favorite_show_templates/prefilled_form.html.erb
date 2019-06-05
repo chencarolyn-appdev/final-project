@@ -1,0 +1,35 @@
+<h1>
+  Edit favorite show #<%= @favorite_show.id %>
+</h1>
+
+<hr>
+
+<%= render("favorite_show_templates/validation_failures.html.erb") %>
+
+<form action="/update_favorite_show_record/<%= @favorite_show.id %>" method="post">
+  <div>
+    <label for="show_id">
+      Show
+    </label>
+
+    <input type="text" id="show_id" name="show_id" value="<%= @favorite_show.show_id %>">
+  </div>
+
+  <div>
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" value="<%= @favorite_show.user_id %>">
+  </div>
+
+  <button>
+    Update favorite show
+  </button>
+</form>
+
+<hr>
+
+<a href="/favorite_shows">
+  Go back
+</a>

@@ -1,0 +1,54 @@
+<h1>
+  Favorite show #<%= @favorite_show.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/favorite_shows">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_favorite_show_form/<%= @favorite_show.id %>">
+      Edit favorite show
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_favorite_show/<%= @favorite_show.id %>">
+      Delete favorite show
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Show
+  </dt>
+  <dd>
+    <%= @favorite_show.show_id %>
+  </dd>
+
+  <dt>
+    User
+  </dt>
+  <dd>
+    <%= @favorite_show.user_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@favorite_show.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@favorite_show.updated_at) %> ago
+  </dd>
+</dl>
+
