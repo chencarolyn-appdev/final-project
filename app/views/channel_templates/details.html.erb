@@ -41,9 +41,9 @@
     Channel shows
   </dt>
   <dd>
-    <%= @channel.shows %>
+    <%= Show.where({ :channel_id => @channel.id }) %>
   </dd>
  
 </dl>
 
-#Show.where({ :channel_id => :id }).pluck(:title).to_s
+##Show.where({ :channel_id => :id }).pluck(:title).to_s

@@ -10,4 +10,6 @@
 #
 
 class ViewingLocation < ApplicationRecord
+has_many :shows, :foreign_key => "viewing_locations_id", :dependent => :nullify
+
 end

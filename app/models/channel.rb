@@ -10,10 +10,15 @@
 #
 
 class Channel < ApplicationRecord
+    has_many :shows, :dependent => :nullify
+
+#def shows
+    #show_list = Channel.pluck(:id)
+    #return Show.where({ :channel_id => show_list })
+    #end
+
 def shows
-    show_list = Channel.pluck(:id)
-    return Show.where({ :channel_id => :id})
-    
+    return Channel.pluck(:id)
 end
 
 end

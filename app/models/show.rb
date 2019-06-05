@@ -13,10 +13,16 @@
 #
 
 class Show < ApplicationRecord
-has_many :shows, :dependent => :nullify
+#has_many :shows, :dependent => :nullify
+belongs_to :channel
+belongs_to :viewing_locations, :class_name => "ViewingLocation"
     def channel
     channel_id = Show.pluck(:channel_id)
    return Channel.where({ :id => channel_id }).at(0).name
+end
+
+def shows
+    return Channel.pluck(:id)
 end
 
 end
