@@ -22,13 +22,6 @@ Rails.application.routes.draw do
   # Routes for the Viewing location resource:
   match("/shows", { :controller =>"shows", :action => "names", :via => "get" })
   
-  match("/users/sign-up", { :controller =>"users", :action => "new_form", :via => "get" })
-
-  match("/create_user_record", { :controller =>"users", :action => "save_new_row", :via => "get" })
-
-  match("/users/sign-in", { :controller =>"session", :action => "new_form", :via => "get" })
-
-  match("/prove_you_are_you", { :controller =>"session", :action => "prove", :via => "post" })
   
   # CREATE
   match("/new_viewing_location_form", { :controller => "viewing_locations", :action => "blank_form", :via => "get" })
@@ -87,5 +80,6 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  root 'shows#names'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

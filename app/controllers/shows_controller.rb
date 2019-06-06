@@ -5,6 +5,10 @@ class ShowsController < ApplicationController
      render("show_templates/list.html.erb")
   end
   
+  def show_name
+    @shows = Show.all
+    return Show.where({ :id => :show_id }).pluck(:title).first
+end
   
   def list
     @shows = Show.all

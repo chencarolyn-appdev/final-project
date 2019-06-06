@@ -1,5 +1,10 @@
 class FavoriteShowsController < ApplicationController
-  def list
+ def show_name
+    @shows = Show.all
+    return Show.where({ :id => :show_id }).pluck(:title).first
+end
+
+def list
     @favorite_shows = FavoriteShow.all
 
     render("favorite_show_templates/list.html.erb")
@@ -12,6 +17,10 @@ class FavoriteShowsController < ApplicationController
   end
 
   def blank_form
+    
+    @shows= Show.all
+    @viewing_locations= ViewingLocation.all
+    @users = User.all
     @favorite_show = FavoriteShow.new
 
     render("favorite_show_templates/blank_form.html.erb")

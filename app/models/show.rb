@@ -13,6 +13,7 @@
 #
 
 class Show < ApplicationRecord
+has_many :favorite_shows, :dependent => :destroy
 belongs_to :channel
 belongs_to :viewing_locations, :class_name => "ViewingLocation"
     def channel
