@@ -11,9 +11,9 @@ def save_new_row
     u.save
     redirect_to("/shows")
     
-    cookies[:email] = params.fetch("email")
-    cookies[:username] = params.fetch("username")
-    cookies[:password] = params.fetch("password")
+    #cookies[:email] = params.fetch("email")
+    #cookies[:username] = params.fetch("username")
+    #cookies[:password] = params.fetch("password")
 end
     
 end

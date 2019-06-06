@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
   
   def names
-     @shows = Show.order({ :time => :desc})
+     @shows = Show.order({ :title => :asc})
      render("show_templates/list.html.erb")
   end
   

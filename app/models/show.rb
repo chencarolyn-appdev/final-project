@@ -13,7 +13,6 @@
 #
 
 class Show < ApplicationRecord
-#has_many :shows, :dependent => :nullify
 belongs_to :channel
 belongs_to :viewing_locations, :class_name => "ViewingLocation"
     def channel
@@ -25,6 +24,10 @@ def shows
     return Channel.pluck(:id)
 end
 
+  def date
+    require "date"
+    return Date.parse(Show.time)
+  end
 end
 
 #belongs_to :channel, :class_name => "channel", :foreign_key => "channel_id"
