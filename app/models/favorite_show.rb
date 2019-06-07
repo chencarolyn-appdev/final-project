@@ -13,7 +13,7 @@ class FavoriteShow < ApplicationRecord
 belongs_to :show
 belongs_to :user
 
-
+  
 def save_new_row
     u= User.new
     u.email = params.fetch("email")
@@ -22,8 +22,39 @@ def save_new_row
     u.save
     redirect_to("/shows")
 end
+ def vl 
+    fav_show = self.show_id
+    show_info = Show.where({ :id => fav_show }).pluck(:viewing_locations_id)
+    return ViewingLocation.where({ :id => show_info }).pluck(:location_name).first
+end
 
 def show_name
-    return Show.where({ :id => :show_id }).pluck(:title).first
+    fav_name = FavoriteShow.pluck(:show_id).first
+    return Show.where({ :id => fav_name }).pluck(:title).first
 end
+    
+
+
+def show_channel
+    fav_show = FavoriteShow.pluck(:show_id)
+    show_info = Show.where({ :id => fav_show }).pluck(:channel_id)
+    return Channel.where({ :id => show_info }).pluck(:name).first
+end
+
+def show_description
+    fav_show = FavoriteShow.pluck(:show_id)
+    return Show.where({ :id => fav_show }).pluck(:description).first
+end
+
+def show_tracker
+    show_title = FavoriteShow.pluck(:show_id)
+    returned_show = Show.where ({ :id => show_title})
+end
+
+def show_info
+    fav_show = self.pluck(:show_id)
+    return Show.where({ :id => fav_show }).pluck(:viewing_locations_id)
+end
+
+
 end

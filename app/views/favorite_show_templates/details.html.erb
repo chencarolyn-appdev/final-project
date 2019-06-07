@@ -1,5 +1,5 @@
 <h1>
-  Favorite show #<%= @favorite_show.id %> details
+  Show Details: <%= @favorite_show.show_name %>
 </h1>
 
 <div>
@@ -21,34 +21,34 @@
     </a>
   </div>
 </div>
-
+<p></p>
 <dl>
   <dt>
     Show
   </dt>
   <dd>
-    <%= @favorite_show.show_id %>
+    <%= @favorite_show.show_name %>
   </dd>
 
   <dt>
-    User
+    Viewing Location
   </dt>
   <dd>
-    <%= @favorite_show.user_id %>
+    <%= @favorite_show.vl %>
   </dd>
 
   <dt>
-    Created at
+    Channel
   </dt>
   <dd>
-    <%= time_ago_in_words(@favorite_show.created_at) %> ago
+    <%= @favorite_show.show_channel %> 
   </dd>
 
   <dt>
-    Updated at
+    Show Description
   </dt>
   <dd>
-    <%= time_ago_in_words(@favorite_show.updated_at) %> ago
+    <%= @favorite_show.show_description %>
   </dd>
 </dl>
 

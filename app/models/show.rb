@@ -29,6 +29,13 @@ end
     require "date"
     return Date.parse(Show.time)
   end
+  
+ def vl 
+    fav_show = FavoriteShow.where({ :show_id => :id}).pluck(:show_id)
+    show_info = Show.where({ :id => fav_show }).pluck(:viewing_locations_id)
+    return ViewingLocation.where({ :id => show_info }).pluck(:location_name).first
+end
+
 end
 
 #belongs_to :channel, :class_name => "channel", :foreign_key => "channel_id"

@@ -5,10 +5,12 @@ class FavoriteShowsController < ApplicationController
 end
 
 def list
-    @favorite_shows = FavoriteShow.all
+    @favorite_shows = FavoriteShow.where({ :user_id => current_user.id})
 
     render("favorite_show_templates/list.html.erb")
   end
+
+
 
   def details
     @favorite_show = FavoriteShow.where({ :id => params.fetch("id_to_display") }).first

@@ -1,11 +1,20 @@
-<h1>
- My Tracked TV Shows
+<h1 style = "color:Green;">
+ TV Show List
 </h1>
 <p></p>
-<h1><%= current_user %></h1>
+<h1>
+  <% if current_user.nil? %>
+  <% else %>
+  <%= current_user.username %>
+  <% end %>
+</h1>
 <p></p>
 <a href="/shows">
   All Shows
+</a>
+<br>
+<a href="/favorite_shows">
+  My Favorite Shows
 </a>
 <br> <a href="/channels">
   Channel Info
@@ -15,6 +24,10 @@
 </a>
 <br> <a href="/new_show_form">
   Add a new show
+</a>
+<br>
+<a href="/users/sign_out" rel= "nofollow" data-method= "delete" >
+  Logout
 </a>
 
 <hr>

@@ -1,5 +1,5 @@
-<h1>
-  Favorite show list
+<h1 style = "color:Green;">
+  My Favorite Show List
 </h1>
 
 <a href="/new_favorite_show_form">
@@ -10,24 +10,13 @@
 
 <table>
   <tr>
-    <th>
-      ID
-    </th>
 
     <th>
       Show
     </th>
 
     <th>
-      User
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
+      Viewing Location
     </th>
 
     <th>
@@ -36,25 +25,15 @@
 
   <% @favorite_shows.each do |favorite_show| %>
   <tr>
+
     <td>
-      <%= favorite_show.id %>
+      <%= Show.where({ :id => favorite_show.show_id }).at(0).title %>
     </td>
 
     <td>
-      <%= favorite_show.show_name %>
+     <%= favorite_show.vl %>
     </td>
 
-    <td>
-      <%= favorite_show.user_id %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(favorite_show.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(favorite_show.updated_at) %> ago
-    </td>
 
     <td>
       <a href="/favorite_shows/<%= favorite_show.id %>">
@@ -64,3 +43,7 @@
   </tr>
   <% end %>
 </table>
+
+      <a href="/shows">
+        See all shows
+      </a>
