@@ -29,20 +29,25 @@ end
 end
 
 def show_name
-    fav_name = FavoriteShow.pluck(:show_id).first
+    fav_name = self.show_id
     return Show.where({ :id => fav_name }).pluck(:title).first
 end
     
 
 
 def show_channel
-    fav_show = FavoriteShow.pluck(:show_id)
+    fav_show = self.show_id
     show_info = Show.where({ :id => fav_show }).pluck(:channel_id)
     return Channel.where({ :id => show_info }).pluck(:name).first
 end
 
+def show_time
+    fav_show = self.show_id
+    return Show.where({ :id => fav_show }).pluck(:time).first
+end
+
 def show_description
-    fav_show = FavoriteShow.pluck(:show_id)
+    fav_show = self.show_id
     return Show.where({ :id => fav_show }).pluck(:description).first
 end
 

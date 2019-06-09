@@ -2,12 +2,13 @@
  TV Show List
 </h1>
 <p></p>
-<h1>
+<h2>
+  Welcome! You are logged in as: 
   <% if current_user.nil? %>
   <% else %>
   <%= current_user.username %>
   <% end %>
-</h1>
+</h2>
 <p></p>
 <a href="/shows">
   All Shows
@@ -26,7 +27,11 @@
   Add a new show
 </a>
 <br>
-<a href="/users/sign_out" rel= "nofollow" data-method= "delete" >
+<a href="/users/sign_in" >
+  Sign In
+</a>
+
+<br><a href="/users/sign_out" rel= "nofollow" data-method= "delete" >
   Logout
 </a>
 
@@ -52,10 +57,6 @@
     </th>
 
     <th>
-      Viewing location
-    </th>
-
-    <th>
     </th>
   </tr>
 
@@ -71,15 +72,11 @@
     </td>
 
     <td>
-      <%= show.time %>
+      <%= show.time.strftime("%A, %I:%M%p") %>
     </td>
 
     <td>
       <%= Channel.where({ :id => show.channel_id }).at(0).name  %>
-    </td>
-
-    <td>
-      <%= ViewingLocation.where({ :id =>show.viewing_locations_id }).at(0).location_name %>
     </td>
 
 

@@ -31,19 +31,18 @@
   </dd>
 
   <dt>
-    Channel number
+    Channel Number
   </dt>
   <dd>
     <%= @channel.channel_number %>
   </dd>
 
   <dt>
-    Channel shows
+    Channel Shows
   </dt>
   <dd>
-    <%= Show.where({ :channel_id => @channel.id }) %>
+    <%= @channel.shows.join(", ") %>
   </dd>
  
 </dl>
 
-##Show.where({ :channel_id => :id }).pluck(:title).to_s

@@ -36,6 +36,11 @@ end
     return ViewingLocation.where({ :id => show_info }).pluck(:location_name).first
 end
 
+ def channel_info
+    show_channel = self.channel_id
+    show_info = Show.where({ :id => fav_show }).pluck(:viewing_locations_id)
+    return ViewingLocation.where({ :id => show_info }).pluck(:location_name).first
+end
 end
 
 #belongs_to :channel, :class_name => "channel", :foreign_key => "channel_id"

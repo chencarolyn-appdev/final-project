@@ -18,7 +18,8 @@ class Channel < ApplicationRecord
     #end
 
 def shows
-    return Channel.pluck(:id)
+    show_channel = self.id
+    return Show.where({:channel_id => show_channel}).pluck(:title)
 end
 
 end

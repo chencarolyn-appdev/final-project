@@ -41,7 +41,7 @@
     Time
   </dt>
   <dd>
-    <%= @show.time %>
+    <%= @show.time.strftime("%A, %I:%M%p") %>
   </dd>
 <p></p>
   <dt>
@@ -50,13 +50,7 @@
   <dd>
     <%= Channel.where({ :id => @show.channel_id }).at(0).name %>
   </dd>
-<p></p>
-  <dt>
-    Viewing location
-  </dt>
-  <dd>
-    <%= ViewingLocation.where({ :id => @show.viewing_locations_id }).at(0).location_name %>
-  </dd>
+
 
 </dl>
 
