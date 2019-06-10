@@ -34,7 +34,7 @@
     Viewing Location
   </dt>
   <dd>
-    <%= @favorite_show.vl %>
+    <%= ViewingLocation.where({ :id => @favorite_show.viewing_location_id }).pluck(:location_name).first %>
   </dd>
 
   <dt>

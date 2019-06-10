@@ -33,7 +33,8 @@ def list
 
     @favorite_show.show_id = params.fetch("show_id")
     @favorite_show.user_id = params.fetch("user_id")
-
+    @favorite_show.viewing_location_id = params.fetch("viewing_locations_id")
+    
     if @favorite_show.valid?
       @favorite_show.save
 

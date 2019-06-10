@@ -2,11 +2,12 @@
 #
 # Table name: favorite_shows
 #
-#  id         :integer          not null, primary key
-#  show_id    :integer
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :integer          not null, primary key
+#  show_id             :integer
+#  user_id             :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  viewing_location_id :integer
 #
 
 class FavoriteShow < ApplicationRecord
